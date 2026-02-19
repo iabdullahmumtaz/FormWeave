@@ -1,0 +1,28 @@
+services:
+  mongodb:
+    image: mongo:7
+    container_name: formweave-mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - formweave_mongo_data:/data/db
+    restart: unless-stopped
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: formweave-api
+    ports:
+      - "6025:6025"
+    environment:
+      MONGODB_URI: mongodb://mongodb:27017/formweave
+      PORT: 6025
+      JWT_SECRET: ${JWT_SECRET:-dev-secret-change-in-production}
+      NODE_ENV: production
+    depends_on:
+      - mongodb
+    restart: unless-stopped
+
+volumes:
+  formweave_mongo_data:
