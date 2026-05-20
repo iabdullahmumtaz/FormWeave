@@ -1,0 +1,38 @@
+.app-shell { min-height: 100vh; }
+.topbar {
+  display: flex; align-items: center; padding: 1rem 2rem;
+  border-bottom: 1px solid var(--border); background: var(--surface);
+}
+.topbar .logo { font-weight: 700; font-size: 1.2rem; color: var(--accent); text-decoration: none; }
+.topbar-nav { margin-left: auto; display: flex; gap: 1rem; }
+.topbar-nav a { color: var(--muted); text-decoration: none; font-size: 0.9rem; }
+.topbar-nav a:hover { color: var(--accent); }
+.page { max-width: 1100px; margin: 0 auto; padding: 2rem; }
+.builder-layout {
+  display: grid; grid-template-columns: 220px 1fr 280px; gap: 1rem;
+  min-height: calc(100vh - 64px); padding: 1rem;
+}
+.palette { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1rem; }
+.palette h4 { font-size: 0.8rem; color: var(--muted); margin-bottom: 0.75rem; }
+.palette-item {
+  padding: 0.6rem 0.75rem; border: 1px dashed var(--border); border-radius: 8px;
+  margin-bottom: 0.5rem; cursor: grab; background: var(--bg); font-size: 0.9rem;
+}
+.canvas { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem; min-height: 400px; }
+.field-card {
+  border: 2px solid var(--border); border-radius: 10px; padding: 1rem;
+  margin-bottom: 0.75rem; background: var(--bg); cursor: grab;
+}
+.field-card.selected { border-color: var(--accent); }
+.inspector { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1rem; }
+.fill-screen {
+  min-height: calc(100vh - 64px); display: flex; flex-direction: column;
+  align-items: center; justify-content: center; padding: 2rem;
+  background: linear-gradient(160deg, #f5f0ff 0%, #faf8ff 50%, #ede9fe 100%);
+}
+.fill-card { width: 100%; max-width: 560px; }
+.fill-card h1 { font-size: 2rem; margin-bottom: 0.5rem; }
+.progress { height: 4px; background: var(--border); border-radius: 2px; margin-bottom: 2rem; overflow: hidden; }
+.progress span { display: block; height: 100%; background: var(--accent); transition: width 0.3s; }
+.form-grid { display: grid; gap: 1rem; }
+@media (max-width: 900px) { .builder-layout { grid-template-columns: 1fr; } }
